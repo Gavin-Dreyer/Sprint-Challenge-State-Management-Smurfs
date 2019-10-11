@@ -18,6 +18,7 @@ const reducer = (state = initialState, action) => {
         case START_POSTING:
         return {
             ...state,
+            isPosting: true,
             error: ''
         }
         case FETCH_SUCCESS:
@@ -38,7 +39,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isPosting: false,
                 error: '',
-                smurfs: [...state.smurfs, action.payload]
+                smurfs: state.smurfs.map(item => [...item, action.payload])
             }
         case POST_FAILURE:
             return {

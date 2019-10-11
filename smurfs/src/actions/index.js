@@ -18,7 +18,6 @@ export const postSmurf = (item) => dispatch => {
         axios.post('http://localhost:3333/smurfs', item)
             .then(res => dispatch({ type: POST_SUCCES, payload: res.data}))
             .catch(err => dispatch({ type: POST_FAILURE, payload: err}))
-
 }
 
 export const RESET_DATA = 'RESET_DATA'

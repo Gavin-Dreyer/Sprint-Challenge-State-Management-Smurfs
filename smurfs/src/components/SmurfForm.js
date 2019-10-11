@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import axios from 'axios'
 
 const SmurfForm = props => {
     const [text, setText] = useState({
@@ -16,15 +15,8 @@ const SmurfForm = props => {
         setText({...text, [e.target.name]: value})
     }
 
-    // const postSmurf = (e, item) => {
-    //     e.preventDefault()
-    //     axios
-    //         .post('http://localhost:3333/smurfs', item)
-    //         .then(res => console.log(res))
-    //         .catch(res => console.log(res))
-    // }
-
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         props.postSmurf(text)
         setText({
             name: '',

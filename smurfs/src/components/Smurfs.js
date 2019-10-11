@@ -7,13 +7,17 @@ import IndividualSmurf from './IndividualSmurf'
 import SmurfForm from './SmurfForm'
 
 const Smurfs = props => {
+    
+
     useEffect(() => {
         props.fetchSmurf()
-    }, [])
+    }, [props.isPosting])
 
     if (props.isFetching) {
         return <h2>Loading...</h2>;
     }
+
+
 
     console.log(props.smurfs)
         
@@ -32,6 +36,7 @@ const mapStatetoProps = state => {
     return {
         smurfs: state.smurfs,
         isFetching: state.isFetching,
+        isPosting: state.isPosting,
         error: state.error
     }
 }
@@ -39,5 +44,5 @@ const mapStatetoProps = state => {
 
 export default connect(
     mapStatetoProps,
-    { fetchSmurf, postSmurf, resetData}
+    { fetchSmurf, postSmurf, resetData }
 )(Smurfs)
